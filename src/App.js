@@ -1,74 +1,47 @@
 import './App.css';
+import Nav from "./Header";
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { products } from "./Products"
+import DisplayProducts from "./displayProducts"
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [
-        {
-          id: 1,
-          image: './products/cologne.jpg',
-          desc: 'Unisex Cologne',
-          value: 0
-        },
-        {
-          id: 2,
-          image: './products/iwatch.jpg',
-          desc: 'Apple iWatch',
-          value: 0
-        },
-        {
-          id: 3,
-          image: './products/mug.jpg', 
-          desc: 'Unique Mug',
-          value: 0
-        },
-        {
-          id: 4,
-          image: './products/wallet.jpg',
-          desc: 'Mens Wallet',
-          value: 0
-        }
-      ]
+      products: products      
     }
   }
 
+  onIncrement = (addvalue) => {
+    if(addvalue.value < 10) {
+      const updatedValue = addvalue.value++;
+      this.setState({updatedValue});
+    }
+  }
+  onDecrement = (decvalue) => {
+    if(decvalue.value > 0) {
+      const updatedValue = decvalue.value--;
+      this.setState({updatedValue});
+    }
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header ps-5 pe-5">
-          <h2>Shop to React</h2>
-          <div>
-            <FontAwesomeIcon icon={faShoppingCart}/>
-            <span className="ps-2"> 0 items</span>
-          </div>
-        </header>
-        <ShowItem items={this.state.items} />
-      </div>
+      {}, 
+      (
+        <div className="App">
+          <Nav totalValue={this.state.products
+              .map((prod) => prod.id)
+                .reduce((acc, curr, index) => acc + curr, 0)}
+            prods={this.state.products}
+            onIncrement={this.onIncrement}
+            onDecrement={this.onDecrement} />
+          <DisplayProducts products={this.state.products} onIncrement={this.onIncrement}
+            onDecrement={this.onDecrement} />
+        </div>
+      )
     )
   }
 }
 
-function ShowItem(props) {
-  return (
-    <div>
-      {props.items.map(item => {
-        return (
-          <div className="card" key={item.id}>
-            <h5 className="text-start mt-4 ms-5 me-4 mb-2">{item.desc}</h5>
-            <div className="row p-2 align-middle">
-              <img alt={item.desc} src={item.image} width="80px" className="col-6 col-md-4 mt-1 ms-4 me-4 mb-2" />
-              <p className="col-sm-6 col-md-8 align-self-center text-start">
-                <span className="border border-2 p-3">{item.value}</span>Quantity</p>
-            </div>
-          </div>
-        )
-      })}
-    </div>
-  )
-}
 export default App;
