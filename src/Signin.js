@@ -27,7 +27,7 @@ export default function SignIn(props) {
                             <LoginForm />
                             {/*FB Login Button*/}
                             <FacebookLogin
-                                appId={"553750095622802"}
+                                appId={"3691159030988199"}
                                 autoLoad={false}
                                 fields={"name, email, picture"}
                                 scope={"public_profile, user_friends"}
