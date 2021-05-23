@@ -5,7 +5,7 @@ import Cart from "./Cart";
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import './App.css';
-
+import Signin from "./Signin";
 function Nav(props) {
     return (
         <Router>
@@ -29,8 +29,10 @@ function Nav(props) {
                      onDecrement={props.onDecrement}/>
                 </Route>
                 <Route path="/shopCart">
-                    <Cart />
-                    <Cart prods={props.prods}/>
+                    <Cart prods={props.prods} totalValue={props.totalValue} />
+                </Route>
+                <Route path="/Signin">
+                    <Signin prods={props.prods}/>
                 </Route>
             </Switch>
         </Router>

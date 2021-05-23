@@ -3,7 +3,8 @@ import Nav from "./Header";
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { products } from "./Products"
-import DisplayProducts from "./displayProducts"
+import DisplayProducts from "./displayProducts";
+
 
 class App extends Component {
   constructor(props) {
