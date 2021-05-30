@@ -15,10 +15,25 @@ function DisplayProducts(props) {
 
     return (
         <div>
+             <div>
+                <form className="row align-item-center m-3">
+                    <div className="col-md-4"></div>
+                    <div className="col-md-4">
+                        <label class="visually-hidden" for="autoSizingSelect">Sort Price By:</label>
+                        <select class="form-select w-25" id="autoSizingSelect"
+                            onChange={(e) => props.onSort(products, e.target.value)}>
+                            <option value="def" selected>By Default</option>
+                            <option value="asc">By Lowest</option>
+                            <option value="desc">By Highest</option>
+                        </select>
+                    </div>
+                    <div className="col-md-4"></div>
+                </form>
+            </div>
             {products.map(product => {
                 return (
                     <div className="card" key={product.id}>
-                        <h4 className="text-start mt-4 ms-5 me-4 mb-2">{product.desc}</h4>
+                        <h4 className="text-start mt-4 ms-5 me-4 mb-2">{product.desc}<span style={{color: "red"}}> ${product.price}</span></h4>
                             <div className="row p-2 align-middle">
                             <Button variant="" className="w-25" onClick={() => setShow(true)}>
                                 <img alt={product.desc} src={product.image} width="50px" className="col-6 col-md-4 mt-1 ms-4 me-4 mb-2"

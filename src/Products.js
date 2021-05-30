@@ -3,13 +3,15 @@ export const products = [
           id: 1,
           image: './products/cologne.jpg',
           desc: 'Unisex Cologne',
-    value: 0,
+          price:35,
+          value: 0,
           ratings: 5
         },
         {
           id: 2,
           image: './products/iwatch.jpg',
           desc: 'Apple iWatch',
+          price:199,
           value: 0,
           ratings: 4
         },
@@ -17,6 +19,7 @@ export const products = [
           id: 3,
           image: './products/mug.jpg', 
           desc: 'Unique Mug',
+          price:15,
           value: 0,
           ratings: 5
         },
@@ -24,6 +27,7 @@ export const products = [
           id: 4,
           image: './products/wallet.jpg',
           desc: 'Mens Wallet',
+          price:48,
           value: 0,
           ratings: 5
         }  

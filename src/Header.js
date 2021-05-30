@@ -26,7 +26,10 @@ function Nav(props) {
             <Switch>
                 <Route exact path="/">
                     <DisplayProducts products={props.products} onIncrement={props.onIncrement}
-                     onDecrement={props.onDecrement}/>
+                        onDecrement={props.onDecrement} sortType={props.sortType} 
+                        listNum={props.listNum}
+                        onSort={props.onSort}
+                    />
                 </Route>
                 <Route path="/shopCart">
                     <Cart prods={props.prods} totalValue={props.totalValue} />
